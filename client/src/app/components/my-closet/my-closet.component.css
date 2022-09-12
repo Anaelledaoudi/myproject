@@ -1,0 +1,40 @@
+.clothes_container {
+  margin-top: 10px;
+  padding: 0 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  justify-items: center;
+  width: 100%;
+  /* overflow: scroll; */
+}
+.cloth_box {
+  background-color: white;
+  width: 40%;
+  height: 130px;
+  border: none;
+  /* box-shadow: grey 5px; */
+  display: inline-block;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-radius: 16px;
+  box-shadow: 0 4px 8px 0 rgb(8 8 8 / 20%), 0 6px 20px 0 rgb(5 5 5 / 19%);
+}
+.cloth_box > .icon {
+  font-size: 18px;
+  margin: 5px;
+}
+.tabs{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px;
+    text-align: center;
+    font-size: 17px;
+}
+.tab:hover{
+    font-weight: bolder;
+}
+

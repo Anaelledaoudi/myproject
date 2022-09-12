@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4b95e7744ffe4b6f9970e1a085c03a8e" Name="Diagram1" ZoomLevel="65">
+        <EntityTypeShape EntityType="ClothinkDBModel.Category" Width="1.5" PointX="10.125" PointY="1.125" />
+        <EntityTypeShape EntityType="ClothinkDBModel.Category_Model" Width="1.5" PointX="11.875" PointY="4.5" />
+        <EntityTypeShape EntityType="ClothinkDBModel.Clothing" Width="1.5" PointX="8.875" PointY="4.375" />
+        <EntityTypeShape EntityType="ClothinkDBModel.Clothing_Season" Width="1.5" PointX="8.25" PointY="8.875" />
+        <EntityTypeShape EntityType="ClothinkDBModel.Clothing_Style" Width="1.5" PointX="11.25" PointY="8.375" />
+        <EntityTypeShape EntityType="ClothinkDBModel.Look_Clothing" Width="1.5" PointX="5.5" PointY="3.5" />
+        <EntityTypeShape EntityType="ClothinkDBModel.Model" Width="1.5" PointX="13.25" PointY="7.375" />
+        <EntityTypeShape EntityType="ClothinkDBModel.Season" Width="1.5" PointX="6.375" PointY="11.25" />
+        <EntityTypeShape EntityType="ClothinkDBModel.User" Width="1.5" PointX="6.125" PointY="6.75" />
+        <AssociationConnector Association="ClothinkDBModel.FK__Category___Cat_I__1F63A897" />
+        <AssociationConnector Association="ClothinkDBModel.FK__Clothing__Cat_Id__0F2D40CE" />
+        <AssociationConnector Association="ClothinkDBModel.FK__Category___Model__2057CCD0" />
+        <AssociationConnector Association="ClothinkDBModel.FK__Clothing___Cloth__22401542" />
+        <AssociationConnector Association="ClothinkDBModel.FK__Clothing___Cloth__2334397B" />
+        <AssociationConnector Association="ClothinkDBModel.FK__Clothing__User_I__0E391C95" />
+        <AssociationConnector Association="ClothinkDBModel.FK__Look_Clot__Cloth__2610A626" />
+        <AssociationConnector Association="ClothinkDBModel.FK__Clothing___Seaso__214BF109" />
+        <AssociationConnector Association="ClothinkDBModel.FK__Model__Season_Id__1E6F845E" />
+        <EntityTypeShape EntityType="ClothinkDBModel.Style" Width="1.5" PointX="3" PointY="6.875" />
+        <EntityTypeShape EntityType="ClothinkDBModel.Style_Type" Width="1.5" PointX="0.75" PointY="7.125" />
+        <AssociationConnector Association="ClothinkDBModel.FK__Clothing___Style__24285DB4" />
+        <AssociationConnector Association="ClothinkDBModel.FK__Style__StyleType__2EA5EC27" />
+        <EntityTypeShape EntityType="ClothinkDBModel.Look" Width="1.5" PointX="8.375" PointY="15" />
+        <AssociationConnector Association="ClothinkDBModel.FK__Look__User_Id__251C81ED" />
+        <AssociationConnector Association="ClothinkDBModel.FK__Look_Clot__Look___2704CA5F" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

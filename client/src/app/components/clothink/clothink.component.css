@@ -1,0 +1,46 @@
+body{
+    text-align: center;
+}
+.pic {
+    border-radius: 28px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 250px;
+    width: 30%;
+    margin: auto;
+    margin-bottom: 20px;
+    margin-top: 3rem;
+    text-align: center;
+    vertical-align: bottom;
+    line-height: 21;
+    color: white;
+    font-weight: 800;
+    font-size: medium;
+}
+.pic:hover,.pic:focus{
+    border: 1px solid salmon;
+    color: black;
+    font-style: italic;
+}
+.weather_span{
+    font-size: medium;
+    font-weight: 700;
+}
+.pic>span{
+    text-align: center;
+
+}
+.dressy {
+    background-image: url("/../../assets/new/dressy.jpg");
+}
+
+.sport {
+    background-image: url("/../../assets/new/sportt.jpg");
+
+}
+
+.casual {
+    background-image: url("/../../assets/new/casual.jpg");
+
+}

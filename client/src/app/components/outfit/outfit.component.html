@@ -1,0 +1,36 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>outfit</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+
+<body>
+  <div class="clothes_container">
+    <div class="cloth_box" *ngFor="let sl of looksList;index as myIndex;">
+      <div class="innercloth" *ngFor="let c of sl.clothingList ; index as i"
+        [style.background-image]="'url(' + c?.ImageLink + ')'">
+        <!-- <i (click)="IsFavorite(i,c.ClothingId)" class="fa icon" [ngClass]="{
+           'fa-heart-o': isFavorite[i],
+           'fa-heart': !isFavorite[i]
+         }"></i>
+        <i class="fa fa-trash icon" (click)="deletecloth(c.ClothingId)"></i> -->
+      </div>
+      <i (click)="IsFavoriteLook(sl.LookId)" class="fa icon" [ngClass]="{
+        'fa-heart-o': sl.LikeOrNot,
+        'fa-regular fa-heart': !sl.LikeOrNot
+      }"></i>
+<i class="fa fa-trash icon" (click)="deleteLook(sl.LookId)"></i>
+<!-- 'fa-heart-o':s.Favorite,
+'fa-regular fa-heart': !s.Favorite -->
+    </div>
+    <span>{{errorMessage}}</span>
+
+  </div>
+</body>
+
+</html>
+<!-- [style.background-image]="'url(' + s.ImageLink + ')'" -->

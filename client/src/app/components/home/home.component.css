@@ -1,0 +1,56 @@
+/* .leftIcon{
+    background-image: url('/../../assets/icons/left-arrow.png');
+    background-size: 100%;
+    width: 20px;
+} */
+body{
+  background-color: transparent;
+}
+section.pictursRouts {
+  /* height: 80%; */
+  width: 100%;
+  padding: 10px 15px;
+}
+.pic {
+  border-radius: 28px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 160px;
+  margin: auto;
+  margin-bottom: 20px;
+  text-align: center;
+  color: white;
+  font-size: 23px;
+  vertical-align: middle;
+  line-height: 7;
+}
+.clothink {
+  background-image: url("/../../assets/clothink.png");
+  width: 94%;
+}
+.Closet {
+  background-image: url("/../../assets/mycloset.png");
+  width: 94%;
+}
+.add {
+  background-image: url("/../../assets/add.png");
+  width: 47%;
+  height: 139px;
+  margin-right: 5px;
+  display: inline-block;
+}
+.new-outfit {
+  background-image: url("/../../assets/new/OUTFITTTTT.jpg");
+  width: 47%;
+  height: 139px;
+  margin-left: 5px;
+  display: inline-block;
+}
+
+/* #donate {
+  background-image: url("/../../assets/5.png");
+  background-size: 100%;
+  width: 150px;
+  height: 150px;
+} */

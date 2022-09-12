@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>signIn</title>
+  </head>
+  <body>
+    <form (ngSubmit)="submitUser()">
+      <div class="inputContainer">
+        <div class="logo"></div>
+        <input
+          type="text"
+          placeholder="Name"
+          name="name"
+          [(ngModel)]="registeredUser.Name"
+        />
+        <input
+          type="text"
+          placeholder="Email"
+          name="email"
+          [(ngModel)]="registeredUser.Gmail"
+        />
+        <input
+          type="text"
+          placeholder="Create password"
+          name="create password"
+          [(ngModel)]="registeredUser.Password"
+        />
+        <input
+          type="text"
+          placeholder="Confirm password"
+          name="confirm password"
+        />
+        <!-- <input type="text" placeholder="Age" name="age" /> -->
+        <input
+          type="date"
+          name=""
+          id=""
+          [(ngModel)]="registeredUser.DateOfBorn"
+        />
+        <button type="submit" class="transBtn">Sign up</button>
+        <a id="signIn" routerLink="/login" class="a-red"> Log in</a>
+        <!-- <input type="button" name="btnSignIn" value="SignIn" /> -->
+      </div>
+    </form>
+  </body>
+</html>

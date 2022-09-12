@@ -1,0 +1,91 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script
+      src="https://kit.fontawesome.com/b0760d49f0.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <!-- <form (ngSubmit)="saveCloth()"> -->
+      <section>
+        <div class="weather">
+            <button #rain (click)="onChooseColor(rain,'rain')"
+             [ngClass]="clothingService.choosenCloth.seasonWinter==true ? 'rain chosenWeather' : 'rain'"></button>
+            <button #sun (click)="onChooseColor(sun,'sun')"
+            [ngClass]="clothingService.choosenCloth.seasonSummer==true ? 'sun chosenWeather' : 'sun'"></button>
+            <button #cloudsun (click)="onChooseColor(cloudsun,'cloudsun')"
+            [ngClass]="clothingService.choosenCloth.seasonWinterSummer==true ? 'cloudsun chosenWeather' : 'cloudsun'"></button>
+        </div>
+        <div class="custom-select">
+            <select #style (change)="onchangeStyle(style)">
+              <option value=0>בחר סגנון</option>
+              <option value=casual>casual</option>
+              <option value=sport>sport</option>
+              <option value=dressy>dressy</option>
+              <!-- <option value=4>קלאסי</option> -->
+            </select>
+          </div>
+          <!-- <div class="custom-select" >
+            <select onchange="onchangeCat(event)">
+              <option value="0">בחר קטגוריה</option>
+              <option value="1">חולצה</option>
+              <option value="2">חצאית</option>
+              <option value="3">מכנס</option>
+              <option value="4">גקט</option>
+              <option value="5">עליונית</option>
+            </select>
+          </div> -->
+          <div class="custom-select">
+            <select #color (change)="onchangeColor(color)">
+              <option value="0">בחר צבע</option>
+              <option value="pink">pink</option>
+              <option value="light-pink">light-pink</option>
+              <option value="red">red</option>
+              <option value="orange">orange</option>
+              <option value="yellow">yellow</option>
+              <option value="black">black</option>
+              <option value="white">white</option>
+              <option value="grey">grey</option>
+              <option value="green">green</option>
+              <option value="light-blue">light-blue</option>
+              <option value="dark-blue">dark-blue</option>
+              <option value="purple">purple</option>
+              <option value="beige">beige</option>
+              <option value="brown">brown</option>
+            </select>
+          </div>
+        <!-- פתיחת מצלמה -->
+        <!-- <i (click)="showCamera=true" style="font-size:250px"class="fa fa-camera camera"></i>
+         <app-camera (submitImage)="saveImage($event)" *ngIf="showCamera"></app-camera> -->
+        <i class="fa fa-camera pic camera" routerLink="/camera"></i>
+        <!-- פתיחת גלריה -->
+        <i class="fa fa-camera pic down"></i>
+        <input
+          type="file"
+          id="file"
+          #imageInput
+          hidden
+          accept=".png,.jpeg,.JPEG,.gif,.jpg,.JPG"
+          (change)="upload(imageInput, $event)"
+        />
+        <span>{{ choosenPicMessage }}</span>
+    
+        <!-- <img [src]="imageSrc" style=" height: 300px; width: 300px; border-radius: 50%;" /> -->
+        <!-- (click)="saveCloth()" -->
+        <button class="transBtnD" type="submit"(click)="saveCloth()" [disabled]="!isCoosenOrTookAPic">SAVE</button>
+        <span>{{ successMessage }}</span>
+
+    
+      </section>
+    <!-- </form> -->
+  </body>
+</html>

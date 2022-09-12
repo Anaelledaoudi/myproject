@@ -1,0 +1,25 @@
+/* body {
+  height: 15vh;
+  background-color: transparent;
+} */
+header {
+  display: flex;
+  justify-content: space-between;
+  padding:5px 15px;
+  width: 100%;
+  align-items: center;
+  padding-bottom: 0;
+}
+.profileImg {
+  border-radius: 50%;
+  width: 40px;
+  background-color: white;
+  height: 40px;
+}
+.left {
+  font-size: 30px;
+}
+h1 {
+  display: inline-block;
+  text-align: center;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--  icon library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- home icon -->
+  <button class="btn"><i class="fa fa-home"></i></button>
+
+  <title>favorite</title>
+</head>
+
+<body>
+  <!-- <div class="clothes_container">
+        <div class="cloth_box" *ngFor="let sl of looksFavoriteList;index as myIndex;">
+          <div class="innercloth" *ngFor="let c of sl.clothingList ; index as i"
+            [style.background-image]="'url(' + c?.ImageLink + ')'">
+          </div>
+          <i (click)="IsFavoriteLook(sl.LookId)" class="fa icon" [ngClass]="{
+            'fa-heart-o': sl.LikeOrNot,
+            'fa-regular fa-heart': !sl.LikeOrNot
+          }"></i>
+        </div>
+        <span>{{errorMessage}}</span>
+      </div> -->
+  <div class="clothes_container">
+    <div class="cloth_box" *ngFor="let s of clothing; index as myIndex"
+      [style.background-image]="'url(' + s.ImageLink + ')'">
+      <!-- <i class="fa fa-trash icon" ></i> -->
+      <!-- <button class="favouri"> </button> (click)="deleteCloth(s)"-->
+    </div>
+  </div>
+</body>
+
+</html>

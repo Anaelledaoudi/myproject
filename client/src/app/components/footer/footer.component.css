@@ -1,0 +1,32 @@
+/* body{
+    height: 15vh;
+    background-color:transparent;
+} */
+footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+}
+
+.icon {
+    display: block;
+    font-size: 25px;
+    text-align: center;
+}
+
+.item {}
+
+.iconimg {
+    width: 35px;
+    height: 29px;
+    background-position: center;
+    background-size: cover;
+}
+
+.outfit {
+    background-image: url("/../../assets/new/iconClothink.jpg");
+}
+.closet{
+    background-image: url("/../../assets/new/hangerIcon.jpg");
+    margin: auto;
+}

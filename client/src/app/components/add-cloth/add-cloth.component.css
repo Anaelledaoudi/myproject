@@ -1,0 +1,60 @@
+.pic {
+  border-radius: 20px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 200px;
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  font-size: 120px;
+  color: white;
+  vertical-align: middle;
+  line-height: 1.6;
+}
+.camera {
+  background-image: url("../../../assets/add clothhh.jpg");
+  margin-top: 1rem;
+  margin-bottom: 25px;
+}
+.down {
+  background-image: url("../../../assets/albm.jpg");
+  margin-bottom: 15px;
+}
+span {
+  margin-bottom: 15px;
+}
+
+#file {
+  position: absolute;
+  top: 440px;
+  width: 280px;
+  height: 180px;
+  background: transparent;
+}
+#file:focus {
+  outline: none;
+}
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: nowrap;
+  position: relative;
+}
+.custom-select {
+  width: 300px;
+  height: 50px;
+  direction: rtl;
+  /* position: relative; */
+}
+.chosenWeather{
+    border: 0.5px solid salmon !important;
+}
+select{
+    width: 300px;
+}
+option{
+    width: 250px;
+
+}

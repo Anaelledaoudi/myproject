@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>logIn</title>
+  </head>
+  <body>
+    <form (ngSubmit)="submitLogin()">
+      <div class="inputContainer">
+        <div class="logo"></div>
+        <input id="email" type="text" placeholder="Email" name="email" [(ngModel)]="email"/>
+        <input
+          id="password"
+          type="password"
+          placeholder="Password"
+          name="password"
+          [(ngModel)]="password"
+        />
+        <a id="forget" routerLink="forget">Forget your password?</a>
+        <!-- name="btnLogIn"
+          value="LogIn" -->
+
+        <button type="submit" class="transBtn mt-5">Log In</button>
+        <div>
+          <span>Not on clothink?</span>
+          <a id="signIn" routerLink="/register" class="a-red">Sign up</a>
+        </div>
+      </div>
+    </form>
+  </body>
+</html>

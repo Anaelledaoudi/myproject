@@ -1,0 +1,49 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>my-closet</title>
+    <!--  icon library -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <!-- home icon -->
+    <!-- <button class="btn"><i class="fa fa-home"></i></button> -->
+  <div class="tabs">
+      <span class="tab" (click)="styleSort('sport')">sport</span>
+      <span class="tab" (click)="styleSort('dressy')">dressy</span>
+      <span class="tab" (click)="styleSort('casual')">casual</span>
+      <!-- <span class="tab">Favorite</span> -->
+      <i class="fa-regular fa-heart" (click)="favoriteSort()"></i>
+      <span class="tab" (click)="clear()">clear</span>
+  </div>
+    <div class="weather">
+        <button class="rain" (click)="weatherSort('rain')"></button>
+        <button class="sun" (click)="weatherSort('sun')"></button>
+        <button class="cloudsun" (click)="weatherSort('cloudsun')"></button>
+    </div>
+    <div class="clothes_container">
+      <div
+        class="cloth_box"
+        *ngFor="let s of clothing; index as myIndex"
+        [style.background-image]="'url(' + s.ImageLink + ')'"
+      >
+        <!-- <button class="favorite" >   </button> -->
+          <i (click)="isFavoritee(s.ClothingId)"
+            class="fa icon"
+            [ngClass]="{
+              'fa-heart-o':s.Favorite,
+              'fa-regular fa-heart': !s.Favorite
+            }"
+          ></i>
+          <!-- <i class="fa-regular fa-heart"></i> -->
+     <i class="fa fa-trash icon" (click)="deleteCloth(s)"></i>
+        <!-- <button class="favouri"> </button> -->
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>outfit</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+
+<body>
+    <div class="flex">
+        <div class="pic dressy"(click)="chooseStyle('dressy')" >
+            <span>dressy</span>
+        </div>
+        <div class="pic sport" (click)="chooseStyle('sport')">
+            <span>sport</span>
+        </div>
+        <div class="pic casual" (click)="chooseStyle('casual')">
+            <span>casual</span>
+        </div>
+    </div>
+    <span class="weather_span">the weather is:</span>
+    <div class="weather">
+        <button class="rain" (click)="chooseWeather('rain')"></button>
+        <button class="sun"(click)="chooseWeather('sun')"></button>
+        <button class="cloudsun"(click)="chooseWeather('cloudsun')"></button>
+    </div>
+    <button class="transBtnD" (click)="showClothink2()">OK</button>
+    <p *ngIf="errorMessage">{{errorMessage}}</p>
+</body>
+
+</html>

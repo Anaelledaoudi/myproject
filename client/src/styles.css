@@ -1,0 +1,132 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+  background-color: transparent;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+input,select {
+  background-color: rgb(175, 171, 171);
+  opacity: 0.5;
+  border-radius: 10px;
+  width: 195px;
+  height: 38px;
+  color: white;
+  padding: 5px;
+}
+#file-upload-button{
+    background-color: aqua !important;
+}
+input::placeholder{
+    color: white;
+}
+.transBtn {
+  border-radius: 10px;
+  background-color: transparent;
+  border-radius: 7px;
+  border: 1px solid white;
+  color: white;
+  padding: 3px 20px;
+  width: 140px;
+}
+.grayBtn {
+  border-radius: 10px;
+  background-color: rgb(107, 106, 106);
+  border-radius: 7px;
+  border: 1px solid black;
+  color: white;
+  padding: 3px 20px;
+  width: 140px;
+}
+.transBtnD{
+    border-radius: 10px;
+    background-color: transparent;
+    border-radius: 7px;
+    border: 1px solid black;
+    color: black;
+    padding: 3px 20px;
+    width: 140px;
+   margin: auto;
+}
+.mt-5{
+    margin-top: 5rem;
+}
+a{
+    color: lightgray;
+}
+.flex{
+  display: flex;
+}
+.flex_column{
+  display: flex;
+  flex-direction:column ;
+}
+/* login & register */
+.inputContainer{
+    padding-top: 6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    text-align: right;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    /* height: 65vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2; */
+}
+.logo{
+    background-image: url("assets/icons/logo2.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 150px;
+    height:50px;
+}
+#forget{
+    margin-top: -2rem;
+    margin-left: -4rem;
+}
+.a-red{
+color: rgb(141, 35, 35);
+text-decoration: solid;
+}
+
+
+/* weather */
+.weather {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px;
+}
+.weather > button {
+  background-size: 67%;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 16px;
+  box-shadow: 0 4px 8px 0 rgb(8 8 8 / 20%), 0 6px 20px 0 rgb(5 5 5 / 19%);
+  width: 55px;
+  height: 55px;
+  border: none;
+  background-color: transparent;
+}
+.weather > button:hover{
+  border: 0.5px solid salmon;
+}
+
+.rain {
+background-image: url("/../../assets/icons/rain.png");
+}
+.sun {
+background-image: url("/../../assets/icons/sun.png");
+}
+.cloudsun {
+background-image: url("/../../assets/icons/cloudsun.png");
+}

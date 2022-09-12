@@ -1,0 +1,856 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ClothinkDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CatId" />
+          </Key>
+          <Property Name="CatId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CatName" Type="nvarchar" MaxLength="51" Nullable="false" />
+          <Property Name="Min" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Category_Model">
+          <Key>
+            <PropertyRef Name="Category_ModelId" />
+          </Key>
+          <Property Name="Category_ModelId" Type="bigint" Nullable="false" />
+          <Property Name="Cat_Id" Type="bigint" Nullable="false" />
+          <Property Name="Model_Id" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Clothing">
+          <Key>
+            <PropertyRef Name="ClothingId" />
+          </Key>
+          <Property Name="ClothingId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="User_Id" Type="bigint" Nullable="false" />
+          <Property Name="Cat_Id" Type="bigint" Nullable="false" />
+          <Property Name="ImageLink" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Pattern" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Size" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Color" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="season" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="style" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Favorite" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Clothing_Season">
+          <Key>
+            <PropertyRef Name="Clothing_SeasonId" />
+          </Key>
+          <Property Name="Clothing_SeasonId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Clothing_Id" Type="bigint" Nullable="false" />
+          <Property Name="Season_Id" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Clothing_Style">
+          <Key>
+            <PropertyRef Name="Clothing_StyleId" />
+          </Key>
+          <Property Name="Clothing_StyleId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Clothing_Id" Type="bigint" Nullable="false" />
+          <Property Name="Style_Id" Type="bigint" Nullable="false" />
+          <Property Name="Weather" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Look">
+          <Key>
+            <PropertyRef Name="LookId" />
+          </Key>
+          <Property Name="LookId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="User_Id" Type="bigint" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="LikeOrNot" Type="bit" />
+          <Property Name="Wore" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Look_Clothing">
+          <Key>
+            <PropertyRef Name="Look_ClothingId" />
+          </Key>
+          <Property Name="Look_ClothingId" Type="bigint" Nullable="false" />
+          <Property Name="Look_Id" Type="bigint" Nullable="false" />
+          <Property Name="Clothing_Id" Type="bigint" Nullable="false" />
+          <Property Name="LikeOrNot" Type="nchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Model">
+          <Key>
+            <PropertyRef Name="ModelId" />
+          </Key>
+          <Property Name="ModelId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Season_Id" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Seasons">
+          <Key>
+            <PropertyRef Name="SeasonId" />
+          </Key>
+          <Property Name="SeasonId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SeasonName" Type="nvarchar" MaxLength="51" Nullable="false" />
+          <Property Name="Icon" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MinDegree" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MaxDegree" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Style">
+          <Key>
+            <PropertyRef Name="StyleId" />
+          </Key>
+          <Property Name="StyleId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StyleName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="StyleTypeId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Style_Type">
+          <Key>
+            <PropertyRef Name="StyleTypeId" />
+          </Key>
+          <Property Name="StyleTypeId" Type="int" Nullable="false" />
+          <Property Name="StyleTypeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="DateOfBorn" Type="datetime" Nullable="false" />
+          <Property Name="Gmail" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Min" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Tsniut" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Category___Cat_I__1F63A897">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="Category_Model" Type="Self.Category_Model" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CatId" />
+            </Principal>
+            <Dependent Role="Category_Model">
+              <PropertyRef Name="Cat_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Category___Model__2057CCD0">
+          <End Role="Model" Type="Self.Model" Multiplicity="1" />
+          <End Role="Category_Model" Type="Self.Category_Model" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Model">
+              <PropertyRef Name="ModelId" />
+            </Principal>
+            <Dependent Role="Category_Model">
+              <PropertyRef Name="Model_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Clothing___Cloth__22401542">
+          <End Role="Clothing" Type="Self.Clothing" Multiplicity="1" />
+          <End Role="Clothing_Season" Type="Self.Clothing_Season" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clothing">
+              <PropertyRef Name="ClothingId" />
+            </Principal>
+            <Dependent Role="Clothing_Season">
+              <PropertyRef Name="Clothing_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Clothing___Cloth__2334397B">
+          <End Role="Clothing" Type="Self.Clothing" Multiplicity="1" />
+          <End Role="Clothing_Style" Type="Self.Clothing_Style" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clothing">
+              <PropertyRef Name="ClothingId" />
+            </Principal>
+            <Dependent Role="Clothing_Style">
+              <PropertyRef Name="Clothing_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Clothing___Seaso__214BF109">
+          <End Role="Seasons" Type="Self.Seasons" Multiplicity="1" />
+          <End Role="Clothing_Season" Type="Self.Clothing_Season" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Seasons">
+              <PropertyRef Name="SeasonId" />
+            </Principal>
+            <Dependent Role="Clothing_Season">
+              <PropertyRef Name="Season_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Clothing___Style__24285DB4">
+          <End Role="Style" Type="Self.Style" Multiplicity="1" />
+          <End Role="Clothing_Style" Type="Self.Clothing_Style" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Style">
+              <PropertyRef Name="StyleId" />
+            </Principal>
+            <Dependent Role="Clothing_Style">
+              <PropertyRef Name="Style_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Clothing__Cat_Id__0F2D40CE">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="Clothing" Type="Self.Clothing" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CatId" />
+            </Principal>
+            <Dependent Role="Clothing">
+              <PropertyRef Name="Cat_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Clothing__User_I__0E391C95">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Clothing" Type="Self.Clothing" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Clothing">
+              <PropertyRef Name="User_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Look__User_Id__251C81ED">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Look" Type="Self.Look" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Look">
+              <PropertyRef Name="User_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Look_Clot__Cloth__2610A626">
+          <End Role="Clothing" Type="Self.Clothing" Multiplicity="1" />
+          <End Role="Look_Clothing" Type="Self.Look_Clothing" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clothing">
+              <PropertyRef Name="ClothingId" />
+            </Principal>
+            <Dependent Role="Look_Clothing">
+              <PropertyRef Name="Clothing_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Look_Clot__Look___2704CA5F">
+          <End Role="Look" Type="Self.Look" Multiplicity="1" />
+          <End Role="Look_Clothing" Type="Self.Look_Clothing" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Look">
+              <PropertyRef Name="LookId" />
+            </Principal>
+            <Dependent Role="Look_Clothing">
+              <PropertyRef Name="Look_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Model__Season_Id__1E6F845E">
+          <End Role="Seasons" Type="Self.Seasons" Multiplicity="1" />
+          <End Role="Model" Type="Self.Model" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Seasons">
+              <PropertyRef Name="SeasonId" />
+            </Principal>
+            <Dependent Role="Model">
+              <PropertyRef Name="Season_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Style__StyleType__2EA5EC27">
+          <End Role="Style_Type" Type="Self.Style_Type" Multiplicity="1" />
+          <End Role="Style" Type="Self.Style" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Style_Type">
+              <PropertyRef Name="StyleTypeId" />
+            </Principal>
+            <Dependent Role="Style">
+              <PropertyRef Name="StyleTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ClothinkDBModelStoreContainer">
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category_Model" EntityType="Self.Category_Model" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Clothing" EntityType="Self.Clothing" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Clothing_Season" EntityType="Self.Clothing_Season" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Clothing_Style" EntityType="Self.Clothing_Style" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Look" EntityType="Self.Look" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Look_Clothing" EntityType="Self.Look_Clothing" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Model" EntityType="Self.Model" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Seasons" EntityType="Self.Seasons" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Style" EntityType="Self.Style" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Style_Type" EntityType="Self.Style_Type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Category___Cat_I__1F63A897" Association="Self.FK__Category___Cat_I__1F63A897">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Category_Model" EntitySet="Category_Model" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Category___Model__2057CCD0" Association="Self.FK__Category___Model__2057CCD0">
+            <End Role="Model" EntitySet="Model" />
+            <End Role="Category_Model" EntitySet="Category_Model" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Clothing___Cloth__22401542" Association="Self.FK__Clothing___Cloth__22401542">
+            <End Role="Clothing" EntitySet="Clothing" />
+            <End Role="Clothing_Season" EntitySet="Clothing_Season" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Clothing___Cloth__2334397B" Association="Self.FK__Clothing___Cloth__2334397B">
+            <End Role="Clothing" EntitySet="Clothing" />
+            <End Role="Clothing_Style" EntitySet="Clothing_Style" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Clothing___Seaso__214BF109" Association="Self.FK__Clothing___Seaso__214BF109">
+            <End Role="Seasons" EntitySet="Seasons" />
+            <End Role="Clothing_Season" EntitySet="Clothing_Season" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Clothing___Style__24285DB4" Association="Self.FK__Clothing___Style__24285DB4">
+            <End Role="Style" EntitySet="Style" />
+            <End Role="Clothing_Style" EntitySet="Clothing_Style" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Clothing__Cat_Id__0F2D40CE" Association="Self.FK__Clothing__Cat_Id__0F2D40CE">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Clothing" EntitySet="Clothing" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Clothing__User_I__0E391C95" Association="Self.FK__Clothing__User_I__0E391C95">
+            <End Role="User" EntitySet="User" />
+            <End Role="Clothing" EntitySet="Clothing" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Look__User_Id__251C81ED" Association="Self.FK__Look__User_Id__251C81ED">
+            <End Role="User" EntitySet="User" />
+            <End Role="Look" EntitySet="Look" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Look_Clot__Cloth__2610A626" Association="Self.FK__Look_Clot__Cloth__2610A626">
+            <End Role="Clothing" EntitySet="Clothing" />
+            <End Role="Look_Clothing" EntitySet="Look_Clothing" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Look_Clot__Look___2704CA5F" Association="Self.FK__Look_Clot__Look___2704CA5F">
+            <End Role="Look" EntitySet="Look" />
+            <End Role="Look_Clothing" EntitySet="Look_Clothing" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Model__Season_Id__1E6F845E" Association="Self.FK__Model__Season_Id__1E6F845E">
+            <End Role="Seasons" EntitySet="Seasons" />
+            <End Role="Model" EntitySet="Model" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Style__StyleType__2EA5EC27" Association="Self.FK__Style__StyleType__2EA5EC27">
+            <End Role="Style_Type" EntitySet="Style_Type" />
+            <End Role="Style" EntitySet="Style" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ClothinkDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ClothinkDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Categories" EntityType="ClothinkDBModel.Category" />
+          <EntitySet Name="Category_Model" EntityType="ClothinkDBModel.Category_Model" />
+          <EntitySet Name="Clothings" EntityType="ClothinkDBModel.Clothing" />
+          <EntitySet Name="Clothing_Season" EntityType="ClothinkDBModel.Clothing_Season" />
+          <EntitySet Name="Clothing_Style" EntityType="ClothinkDBModel.Clothing_Style" />
+          <EntitySet Name="Look_Clothing" EntityType="ClothinkDBModel.Look_Clothing" />
+          <EntitySet Name="Models" EntityType="ClothinkDBModel.Model" />
+          <EntitySet Name="Seasons" EntityType="ClothinkDBModel.Season" />
+          <EntitySet Name="Users" EntityType="ClothinkDBModel.User" />
+          <AssociationSet Name="FK__Category___Cat_I__1F63A897" Association="ClothinkDBModel.FK__Category___Cat_I__1F63A897">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Category_Model" EntitySet="Category_Model" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Clothing__Cat_Id__0F2D40CE" Association="ClothinkDBModel.FK__Clothing__Cat_Id__0F2D40CE">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Clothing" EntitySet="Clothings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Category___Model__2057CCD0" Association="ClothinkDBModel.FK__Category___Model__2057CCD0">
+            <End Role="Model" EntitySet="Models" />
+            <End Role="Category_Model" EntitySet="Category_Model" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Clothing___Cloth__22401542" Association="ClothinkDBModel.FK__Clothing___Cloth__22401542">
+            <End Role="Clothing" EntitySet="Clothings" />
+            <End Role="Clothing_Season" EntitySet="Clothing_Season" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Clothing___Cloth__2334397B" Association="ClothinkDBModel.FK__Clothing___Cloth__2334397B">
+            <End Role="Clothing" EntitySet="Clothings" />
+            <End Role="Clothing_Style" EntitySet="Clothing_Style" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Clothing__User_I__0E391C95" Association="ClothinkDBModel.FK__Clothing__User_I__0E391C95">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Clothing" EntitySet="Clothings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Look_Clot__Cloth__2610A626" Association="ClothinkDBModel.FK__Look_Clot__Cloth__2610A626">
+            <End Role="Clothing" EntitySet="Clothings" />
+            <End Role="Look_Clothing" EntitySet="Look_Clothing" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Clothing___Seaso__214BF109" Association="ClothinkDBModel.FK__Clothing___Seaso__214BF109">
+            <End Role="Season" EntitySet="Seasons" />
+            <End Role="Clothing_Season" EntitySet="Clothing_Season" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Model__Season_Id__1E6F845E" Association="ClothinkDBModel.FK__Model__Season_Id__1E6F845E">
+            <End Role="Season" EntitySet="Seasons" />
+            <End Role="Model" EntitySet="Models" />
+          </AssociationSet>
+          <EntitySet Name="Styles" EntityType="ClothinkDBModel.Style" />
+          <EntitySet Name="Style_Type" EntityType="ClothinkDBModel.Style_Type" />
+          <AssociationSet Name="FK__Clothing___Style__24285DB4" Association="ClothinkDBModel.FK__Clothing___Style__24285DB4">
+            <End Role="Style" EntitySet="Styles" />
+            <End Role="Clothing_Style" EntitySet="Clothing_Style" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Style__StyleType__2EA5EC27" Association="ClothinkDBModel.FK__Style__StyleType__2EA5EC27">
+            <End Role="Style_Type" EntitySet="Style_Type" />
+            <End Role="Style" EntitySet="Styles" />
+          </AssociationSet>
+          <EntitySet Name="Looks" EntityType="ClothinkDBModel.Look" />
+          <AssociationSet Name="FK__Look__User_Id__251C81ED" Association="ClothinkDBModel.FK__Look__User_Id__251C81ED">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Look" EntitySet="Looks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Look_Clot__Look___2704CA5F" Association="ClothinkDBModel.FK__Look_Clot__Look___2704CA5F">
+            <End Role="Look" EntitySet="Looks" />
+            <End Role="Look_Clothing" EntitySet="Look_Clothing" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CatId" />
+          </Key>
+          <Property Name="CatId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CatName" Type="String" Nullable="false" MaxLength="51" FixedLength="false" Unicode="true" />
+          <Property Name="Min" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Category_Model" Relationship="ClothinkDBModel.FK__Category___Cat_I__1F63A897" FromRole="Category" ToRole="Category_Model" />
+          <NavigationProperty Name="Clothings" Relationship="ClothinkDBModel.FK__Clothing__Cat_Id__0F2D40CE" FromRole="Category" ToRole="Clothing" />
+        </EntityType>
+        <EntityType Name="Category_Model">
+          <Key>
+            <PropertyRef Name="Category_ModelId" />
+          </Key>
+          <Property Name="Category_ModelId" Type="Int64" Nullable="false" />
+          <Property Name="Cat_Id" Type="Int64" Nullable="false" />
+          <Property Name="Model_Id" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Category" Relationship="ClothinkDBModel.FK__Category___Cat_I__1F63A897" FromRole="Category_Model" ToRole="Category" />
+          <NavigationProperty Name="Model" Relationship="ClothinkDBModel.FK__Category___Model__2057CCD0" FromRole="Category_Model" ToRole="Model" />
+        </EntityType>
+        <EntityType Name="Clothing">
+          <Key>
+            <PropertyRef Name="ClothingId" />
+          </Key>
+          <Property Name="ClothingId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="User_Id" Type="Int64" Nullable="false" />
+          <Property Name="Cat_Id" Type="Int64" Nullable="false" />
+          <Property Name="ImageLink" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Pattern" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Size" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Color" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Category" Relationship="ClothinkDBModel.FK__Clothing__Cat_Id__0F2D40CE" FromRole="Clothing" ToRole="Category" />
+          <NavigationProperty Name="Clothing_Season" Relationship="ClothinkDBModel.FK__Clothing___Cloth__22401542" FromRole="Clothing" ToRole="Clothing_Season" />
+          <NavigationProperty Name="Clothing_Style" Relationship="ClothinkDBModel.FK__Clothing___Cloth__2334397B" FromRole="Clothing" ToRole="Clothing_Style" />
+          <NavigationProperty Name="User" Relationship="ClothinkDBModel.FK__Clothing__User_I__0E391C95" FromRole="Clothing" ToRole="User" />
+          <NavigationProperty Name="Look_Clothing" Relationship="ClothinkDBModel.FK__Look_Clot__Cloth__2610A626" FromRole="Clothing" ToRole="Look_Clothing" />
+          <Property Name="season" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="style" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Favorite" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Clothing_Season">
+          <Key>
+            <PropertyRef Name="Clothing_SeasonId" />
+          </Key>
+          <Property Name="Clothing_SeasonId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Clothing_Id" Type="Int64" Nullable="false" />
+          <Property Name="Season_Id" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Clothing" Relationship="ClothinkDBModel.FK__Clothing___Cloth__22401542" FromRole="Clothing_Season" ToRole="Clothing" />
+          <NavigationProperty Name="Season" Relationship="ClothinkDBModel.FK__Clothing___Seaso__214BF109" FromRole="Clothing_Season" ToRole="Season" />
+        </EntityType>
+        <EntityType Name="Clothing_Style">
+          <Key>
+            <PropertyRef Name="Clothing_StyleId" />
+          </Key>
+          <Property Name="Clothing_StyleId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Clothing_Id" Type="Int64" Nullable="false" />
+          <Property Name="Style_Id" Type="Int64" Nullable="false" />
+          <Property Name="Weather" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Clothing" Relationship="ClothinkDBModel.FK__Clothing___Cloth__2334397B" FromRole="Clothing_Style" ToRole="Clothing" />
+          <NavigationProperty Name="Style" Relationship="ClothinkDBModel.FK__Clothing___Style__24285DB4" FromRole="Clothing_Style" ToRole="Style" />
+        </EntityType>
+        <EntityType Name="Look_Clothing">
+          <Key>
+            <PropertyRef Name="Look_ClothingId" />
+          </Key>
+          <Property Name="Look_ClothingId" Type="Int64" Nullable="false" />
+          <Property Name="Look_Id" Type="Int64" Nullable="false" />
+          <Property Name="Clothing_Id" Type="Int64" Nullable="false" />
+          <Property Name="LikeOrNot" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Clothing" Relationship="ClothinkDBModel.FK__Look_Clot__Cloth__2610A626" FromRole="Look_Clothing" ToRole="Clothing" />
+          <NavigationProperty Name="Look" Relationship="ClothinkDBModel.FK__Look_Clot__Look___2704CA5F" FromRole="Look_Clothing" ToRole="Look" />
+        </EntityType>
+        <EntityType Name="Model">
+          <Key>
+            <PropertyRef Name="ModelId" />
+          </Key>
+          <Property Name="ModelId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Season_Id" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Category_Model" Relationship="ClothinkDBModel.FK__Category___Model__2057CCD0" FromRole="Model" ToRole="Category_Model" />
+          <NavigationProperty Name="Season" Relationship="ClothinkDBModel.FK__Model__Season_Id__1E6F845E" FromRole="Model" ToRole="Season" />
+        </EntityType>
+        <EntityType Name="Season">
+          <Key>
+            <PropertyRef Name="SeasonId" />
+          </Key>
+          <Property Name="SeasonId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SeasonName" Type="String" Nullable="false" MaxLength="51" FixedLength="false" Unicode="true" />
+          <Property Name="Icon" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MinDegree" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MaxDegree" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Clothing_Season" Relationship="ClothinkDBModel.FK__Clothing___Seaso__214BF109" FromRole="Season" ToRole="Clothing_Season" />
+          <NavigationProperty Name="Models" Relationship="ClothinkDBModel.FK__Model__Season_Id__1E6F845E" FromRole="Season" ToRole="Model" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="DateOfBorn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Gmail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Min" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Tsniut" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Clothings" Relationship="ClothinkDBModel.FK__Clothing__User_I__0E391C95" FromRole="User" ToRole="Clothing" />
+          <NavigationProperty Name="Looks" Relationship="ClothinkDBModel.FK__Look__User_Id__251C81ED" FromRole="User" ToRole="Look" />
+        </EntityType>
+        <Association Name="FK__Category___Cat_I__1F63A897">
+          <End Type="ClothinkDBModel.Category" Role="Category" Multiplicity="1" />
+          <End Type="ClothinkDBModel.Category_Model" Role="Category_Model" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CatId" />
+            </Principal>
+            <Dependent Role="Category_Model">
+              <PropertyRef Name="Cat_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Clothing__Cat_Id__0F2D40CE">
+          <End Type="ClothinkDBModel.Category" Role="Category" Multiplicity="1" />
+          <End Type="ClothinkDBModel.Clothing" Role="Clothing" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CatId" />
+            </Principal>
+            <Dependent Role="Clothing">
+              <PropertyRef Name="Cat_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Category___Model__2057CCD0">
+          <End Type="ClothinkDBModel.Model" Role="Model" Multiplicity="1" />
+          <End Type="ClothinkDBModel.Category_Model" Role="Category_Model" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Model">
+              <PropertyRef Name="ModelId" />
+            </Principal>
+            <Dependent Role="Category_Model">
+              <PropertyRef Name="Model_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Clothing___Cloth__22401542">
+          <End Type="ClothinkDBModel.Clothing" Role="Clothing" Multiplicity="1" />
+          <End Type="ClothinkDBModel.Clothing_Season" Role="Clothing_Season" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clothing">
+              <PropertyRef Name="ClothingId" />
+            </Principal>
+            <Dependent Role="Clothing_Season">
+              <PropertyRef Name="Clothing_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Clothing___Cloth__2334397B">
+          <End Type="ClothinkDBModel.Clothing" Role="Clothing" Multiplicity="1" />
+          <End Type="ClothinkDBModel.Clothing_Style" Role="Clothing_Style" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clothing">
+              <PropertyRef Name="ClothingId" />
+            </Principal>
+            <Dependent Role="Clothing_Style">
+              <PropertyRef Name="Clothing_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Clothing__User_I__0E391C95">
+          <End Type="ClothinkDBModel.User" Role="User" Multiplicity="1" />
+          <End Type="ClothinkDBModel.Clothing" Role="Clothing" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Clothing">
+              <PropertyRef Name="User_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Look_Clot__Cloth__2610A626">
+          <End Type="ClothinkDBModel.Clothing" Role="Clothing" Multiplicity="1" />
+          <End Type="ClothinkDBModel.Look_Clothing" Role="Look_Clothing" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clothing">
+              <PropertyRef Name="ClothingId" />
+            </Principal>
+            <Dependent Role="Look_Clothing">
+              <PropertyRef Name="Clothing_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Clothing___Seaso__214BF109">
+          <End Type="ClothinkDBModel.Season" Role="Season" Multiplicity="1" />
+          <End Type="ClothinkDBModel.Clothing_Season" Role="Clothing_Season" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Season">
+              <PropertyRef Name="SeasonId" />
+            </Principal>
+            <Dependent Role="Clothing_Season">
+              <PropertyRef Name="Season_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Model__Season_Id__1E6F845E">
+          <End Type="ClothinkDBModel.Season" Role="Season" Multiplicity="1" />
+          <End Type="ClothinkDBModel.Model" Role="Model" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Season">
+              <PropertyRef Name="SeasonId" />
+            </Principal>
+            <Dependent Role="Model">
+              <PropertyRef Name="Season_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Style">
+          <Key>
+            <PropertyRef Name="StyleId" />
+          </Key>
+          <Property Name="StyleId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StyleName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StyleTypeId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Clothing_Style" Relationship="ClothinkDBModel.FK__Clothing___Style__24285DB4" FromRole="Style" ToRole="Clothing_Style" />
+          <NavigationProperty Name="Style_Type" Relationship="ClothinkDBModel.FK__Style__StyleType__2EA5EC27" FromRole="Style" ToRole="Style_Type" />
+        </EntityType>
+        <EntityType Name="Style_Type">
+          <Key>
+            <PropertyRef Name="StyleTypeId" />
+          </Key>
+          <Property Name="StyleTypeId" Type="Int32" Nullable="false" />
+          <Property Name="StyleTypeName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Styles" Relationship="ClothinkDBModel.FK__Style__StyleType__2EA5EC27" FromRole="Style_Type" ToRole="Style" />
+        </EntityType>
+        <Association Name="FK__Clothing___Style__24285DB4">
+          <End Type="ClothinkDBModel.Style" Role="Style" Multiplicity="1" />
+          <End Type="ClothinkDBModel.Clothing_Style" Role="Clothing_Style" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Style">
+              <PropertyRef Name="StyleId" />
+            </Principal>
+            <Dependent Role="Clothing_Style">
+              <PropertyRef Name="Style_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Style__StyleType__2EA5EC27">
+          <End Type="ClothinkDBModel.Style_Type" Role="Style_Type" Multiplicity="1" />
+          <End Type="ClothinkDBModel.Style" Role="Style" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Style_Type">
+              <PropertyRef Name="StyleTypeId" />
+            </Principal>
+            <Dependent Role="Style">
+              <PropertyRef Name="StyleTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Look">
+          <Key>
+            <PropertyRef Name="LookId" />
+          </Key>
+          <Property Name="LookId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="User_Id" Type="Int64" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LikeOrNot" Type="Boolean" />
+          <Property Name="Wore" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="ClothinkDBModel.FK__Look__User_Id__251C81ED" FromRole="Look" ToRole="User" />
+          <NavigationProperty Name="Look_Clothing" Relationship="ClothinkDBModel.FK__Look_Clot__Look___2704CA5F" FromRole="Look" ToRole="Look_Clothing" />
+        </EntityType>
+        <Association Name="FK__Look__User_Id__251C81ED">
+          <End Type="ClothinkDBModel.User" Role="User" Multiplicity="1" />
+          <End Type="ClothinkDBModel.Look" Role="Look" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Look">
+              <PropertyRef Name="User_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Look_Clot__Look___2704CA5F">
+          <End Type="ClothinkDBModel.Look" Role="Look" Multiplicity="1" />
+          <End Type="ClothinkDBModel.Look_Clothing" Role="Look_Clothing" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Look">
+              <PropertyRef Name="LookId" />
+            </Principal>
+            <Dependent Role="Look_Clothing">
+              <PropertyRef Name="Look_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ClothinkDBModelStoreContainer" CdmEntityContainer="ClothinkDBEntities">
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="ClothinkDBModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="Min" ColumnName="Min" />
+                <ScalarProperty Name="CatName" ColumnName="CatName" />
+                <ScalarProperty Name="CatId" ColumnName="CatId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Category_Model">
+            <EntityTypeMapping TypeName="ClothinkDBModel.Category_Model">
+              <MappingFragment StoreEntitySet="Category_Model">
+                <ScalarProperty Name="Model_Id" ColumnName="Model_Id" />
+                <ScalarProperty Name="Cat_Id" ColumnName="Cat_Id" />
+                <ScalarProperty Name="Category_ModelId" ColumnName="Category_ModelId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clothings">
+            <EntityTypeMapping TypeName="ClothinkDBModel.Clothing">
+              <MappingFragment StoreEntitySet="Clothing">
+                <ScalarProperty Name="Favorite" ColumnName="Favorite" />
+                <ScalarProperty Name="style" ColumnName="style" />
+                <ScalarProperty Name="season" ColumnName="season" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="Pattern" ColumnName="Pattern" />
+                <ScalarProperty Name="ImageLink" ColumnName="ImageLink" />
+                <ScalarProperty Name="Cat_Id" ColumnName="Cat_Id" />
+                <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+                <ScalarProperty Name="ClothingId" ColumnName="ClothingId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clothing_Season">
+            <EntityTypeMapping TypeName="ClothinkDBModel.Clothing_Season">
+              <MappingFragment StoreEntitySet="Clothing_Season">
+                <ScalarProperty Name="Season_Id" ColumnName="Season_Id" />
+                <ScalarProperty Name="Clothing_Id" ColumnName="Clothing_Id" />
+                <ScalarProperty Name="Clothing_SeasonId" ColumnName="Clothing_SeasonId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clothing_Style">
+            <EntityTypeMapping TypeName="ClothinkDBModel.Clothing_Style">
+              <MappingFragment StoreEntitySet="Clothing_Style">
+                <ScalarProperty Name="Weather" ColumnName="Weather" />
+                <ScalarProperty Name="Style_Id" ColumnName="Style_Id" />
+                <ScalarProperty Name="Clothing_Id" ColumnName="Clothing_Id" />
+                <ScalarProperty Name="Clothing_StyleId" ColumnName="Clothing_StyleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Look_Clothing">
+            <EntityTypeMapping TypeName="ClothinkDBModel.Look_Clothing">
+              <MappingFragment StoreEntitySet="Look_Clothing">
+                <ScalarProperty Name="LikeOrNot" ColumnName="LikeOrNot" />
+                <ScalarProperty Name="Clothing_Id" ColumnName="Clothing_Id" />
+                <ScalarProperty Name="Look_Id" ColumnName="Look_Id" />
+                <ScalarProperty Name="Look_ClothingId" ColumnName="Look_ClothingId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Models">
+            <EntityTypeMapping TypeName="ClothinkDBModel.Model">
+              <MappingFragment StoreEntitySet="Model">
+                <ScalarProperty Name="Season_Id" ColumnName="Season_Id" />
+                <ScalarProperty Name="ModelId" ColumnName="ModelId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Seasons">
+            <EntityTypeMapping TypeName="ClothinkDBModel.Season">
+              <MappingFragment StoreEntitySet="Seasons">
+                <ScalarProperty Name="MaxDegree" ColumnName="MaxDegree" />
+                <ScalarProperty Name="MinDegree" ColumnName="MinDegree" />
+                <ScalarProperty Name="Icon" ColumnName="Icon" />
+                <ScalarProperty Name="SeasonName" ColumnName="SeasonName" />
+                <ScalarProperty Name="SeasonId" ColumnName="SeasonId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="ClothinkDBModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Tsniut" ColumnName="Tsniut" />
+                <ScalarProperty Name="Min" ColumnName="Min" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Gmail" ColumnName="Gmail" />
+                <ScalarProperty Name="DateOfBorn" ColumnName="DateOfBorn" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Styles">
+            <EntityTypeMapping TypeName="ClothinkDBModel.Style">
+              <MappingFragment StoreEntitySet="Style">
+                <ScalarProperty Name="StyleTypeId" ColumnName="StyleTypeId" />
+                <ScalarProperty Name="StyleName" ColumnName="StyleName" />
+                <ScalarProperty Name="StyleId" ColumnName="StyleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Style_Type">
+            <EntityTypeMapping TypeName="ClothinkDBModel.Style_Type">
+              <MappingFragment StoreEntitySet="Style_Type">
+                <ScalarProperty Name="StyleTypeName" ColumnName="StyleTypeName" />
+                <ScalarProperty Name="StyleTypeId" ColumnName="StyleTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Looks">
+            <EntityTypeMapping TypeName="ClothinkDBModel.Look">
+              <MappingFragment StoreEntitySet="Look">
+                <ScalarProperty Name="Wore" ColumnName="Wore" />
+                <ScalarProperty Name="LikeOrNot" ColumnName="LikeOrNot" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+                <ScalarProperty Name="LookId" ColumnName="LookId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
